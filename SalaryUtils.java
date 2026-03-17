@@ -17,7 +17,10 @@ public class SalaryUtils {
      */
     public static double calculateAnnualSalary(double monthlySalary) {
         // TODO: Implement this method
-        return 0;
+        if (monthlySalary < 0) {
+            throw new IllegalArgumentException("Monthly salary cannot be negative");
+        }
+        return monthlySalary * 12;
     }
 
     /**
@@ -36,7 +39,17 @@ public class SalaryUtils {
      */
     public static double calculateTax(double annualSalary) {
         // TODO: Implement this method using if/else
-        return 0;
+        if (annualSalary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
+        if(annualSalary<10000){
+            return 0.0*annualSalary;
+        } else if (annualSalary>=10000 && annualSalary<=30000) {
+            return 0.1*annualSalary;
+        }
+        else{
+            return 0.2*annualSalary;
+        }
     }
 
     /**
@@ -49,7 +62,10 @@ public class SalaryUtils {
      */
     public static double calculateNetSalary(double annualSalary) {
         // TODO: Implement this method (hint: reuse calculateTax)
-        return 0;
+        if (annualSalary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
+        return annualSalary-calculateTax(annualSalary);
     }
 
     /**
@@ -66,6 +82,12 @@ public class SalaryUtils {
      */
     public static double applyRaise(double currentSalary, double percentRaise) {
         // TODO: Implement this method
-        return 0;
+        if (currentSalary < 0) {
+            throw new IllegalArgumentException("Salary cannot be negative");
+        }
+        if(percentRaise < 0 || percentRaise>100){
+            throw new IllegalArgumentException("Raise must be between 0 and 100");
+        }
+        return currentSalary * (1 + percentRaise / 100);
     }
 }
