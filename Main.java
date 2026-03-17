@@ -40,11 +40,17 @@ public class Main {
 
         System.out.println("\n=== PART C: Inheritance & Polymorphism ===");
         // TODO: Create at least 1 Manager and 1 Intern
+        Manager manager1 = new Manager(10,"Ameen","Instructor",1000000,5);
+        Intern intern = new Intern(26,"Mohammed","Development",100,"UOB");
         // TODO: Add all employees (Employee, Manager, Intern) to the manager
+        manager.addEmployee(manager1);
+        manager.addEmployee(intern);
         // TODO: Loop through getAllEmployees() and call getBonus() on each
         //       Print: "<name> bonus: <amount>" for each one
         //       This demonstrates polymorphism — same method call, different behavior
-
+        for (Employee e : manager.getAllEmployees()) {
+            System.out.println(e.getName() + " Salary bonus: " + e.getBonus());
+        }
 
         System.out.println("\n=== PART D: Exception Handling ===");
         // TODO: Use try/catch to demonstrate:
