@@ -14,19 +14,29 @@ public class Main {
 
         System.out.println("=== PART A: Salary Utilities ===");
         // TODO: Test all 4 SalaryUtils methods and print results
-        // Example:
-        //   System.out.println("Annual salary: " + SalaryUtils.calculateAnnualSalary(3000));
-        //   System.out.println("Tax on 25000: " + SalaryUtils.calculateTax(25000));
-        //   System.out.println("Net salary: " + SalaryUtils.calculateNetSalary(25000));
-        //   System.out.println("After 10% raise: " + SalaryUtils.applyRaise(3000, 10));
+        System.out.println("Annual Salary: " + SalaryUtils.calculateAnnualSalary(3000));
+        System.out.println("Tax: " + SalaryUtils.calculateTax(25000));
+        System.out.println("Net Salary: " + SalaryUtils.calculateNetSalary(25000));
+        System.out.println("Salary after raise: " + SalaryUtils.applyRaise(3000, 10));
 
 
         System.out.println("\n=== PART B: Employee Manager ===");
         // TODO: Create an EmployeeManager
+        EmployeeManager manager = new EmployeeManager();
         // TODO: Create and add at least 3 employees to it
-        // TODO: Demonstrate findById (found + not found)
-        // TODO: Demonstrate getEmployeesByDepartment
+        Employee e1 = new Employee(1, "Ahmed", "Development", 3500);
+        Employee e2 = new Employee(2, "Ali", "Cybersecurity", 3000);
+        Employee e3 = new Employee(3, "Abdulla", "Cybersecurity", 2800);
+        manager.addEmployee(e1);
+        manager.addEmployee(e2);
+        manager.addEmployee(e3);
 
+        // TODO: Demonstrate findById (found + not found)
+        System.out.println(manager.findById(1));
+        System.out.println(manager.findById(76));
+
+        // TODO: Demonstrate getEmployeesByDepartment
+        System.out.println(manager.getEmployeesByDepartment("cybersecurity"));
 
         System.out.println("\n=== PART C: Inheritance & Polymorphism ===");
         // TODO: Create at least 1 Manager and 1 Intern

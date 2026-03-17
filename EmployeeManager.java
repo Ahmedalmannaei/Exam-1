@@ -29,7 +29,12 @@ public class EmployeeManager {
      */
     public void addEmployee(Employee employee) {
         // TODO: Check if ID already exists in the map
+        if (employeeMap.containsKey(employee.getId())) {
+            throw new IllegalArgumentException("Employee with this ID already exists");
+        }
         // TODO: Add to both the list and the map
+        employees.add(employee);
+        employeeMap.put(employee.getId(),employee);
     }
 
     /**
@@ -41,7 +46,8 @@ public class EmployeeManager {
      */
     public Employee findById(int id) {
         // TODO: Look up the employee in the map
-        return null;
+        return employeeMap.get(id);
+
     }
 
     /**
@@ -58,7 +64,15 @@ public class EmployeeManager {
         // TODO: Loop through the employees list
         // TODO: Add matching employees to a results list
         // Hint: use .equalsIgnoreCase() for case-insensitive comparison
-        return new ArrayList<>();
+        List<Employee> results = new ArrayList<>();
+
+        for (Employee e : employees) {
+            if (e.getDepartment().equalsIgnoreCase(department)) {
+                results.add(e);
+            }
+        }
+
+        return results;
     }
 
     /**
@@ -106,13 +120,13 @@ public class EmployeeManager {
      * @throws IllegalArgumentException if no employee with that ID exists
      * @throws IllegalArgumentException if the employee is already a Manager
      */
-    public Manager promoteToManager(int id, int teamSize) {
-        // TODO: Find the employee by ID (throw if not found)
-        // TODO: Check if already a Manager (use instanceof), throw if so
-        //       Message: "Employee <id> is already a Manager"
-        // TODO: Create a new Manager with the same details + teamSize
-        // TODO: Remove the old employee, add the new Manager
-        // TODO: Return the new Manager
-        return null;
-    }
+//    public Manager promoteToManager(int id, int teamSize) {
+//        // TODO: Find the employee by ID (throw if not found)
+//        // TODO: Check if already a Manager (use instanceof), throw if so
+//        //       Message: "Employee <id> is already a Manager"
+//        // TODO: Create a new Manager with the same details + teamSize
+//        // TODO: Remove the old employee, add the new Manager
+//        // TODO: Return the new Manager
+//        return null;
+//    }
 }
